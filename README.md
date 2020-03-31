@@ -6,13 +6,14 @@
 
 - The tree from above can then be used to generate a sequence alignment. We used seqgen as follows:
 
-seqgen bd_100k_phylogram.tree -m GTR -l 29903 -r 0.2858 1.1731 0.2123 0.3217 3.0578 1.0000 -f 0.2987 0.1837 0.1964 0.3213 -i 0.6041 -a 4.4 -g 3 -of > bd_100k_seq.fasta
+```seqgen bd_100k_phylogram.tree -m GTR -l 29903 -r 0.2858 1.1731 0.2123 0.3217 3.0578 1.0000 -f 0.2987 0.1837 0.1964 0.3213 -i 0.6041 -a 4.4 -g 3 -of > bd_100k_seq.fasta```
 
 - The substitution model parameters were estimated using IQTREE with the output below. Note that in seqgen we cannot use the free rates model, so we use a gamma distribution that has a similar shape to the three rates below.
 
 
 SUBSTITUTION PROCESS
 --------------------
+
 Model of substitution: GTR+F+I+R3
 Rate parameter R:
   A-C: 0.2858
