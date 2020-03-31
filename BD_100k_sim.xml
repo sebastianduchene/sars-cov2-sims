@@ -1,0 +1,44 @@
+<beast version='2.0'
+       namespace='master:master.model:master.steppers:master.conditions:master.postprocessors:master.outputs'>
+    <run spec='InheritanceTrajectory' samplePopulationSizes="true" verbosity="2"> 
+        <model spec='Model' id='model'>
+            <population spec='Population' populationName='I' id='I'/>
+            <population spec='Population' populationName='R' id='R'/>
+	    <population spec="Population" populationName="I_sampled" id="I_sampled"/>
+	    <!-- Simple birth-death model with constant exponential 
+		 growth. Assume an R0 of 2.5, with 0.5 samplig probability, 
+		 which is overly high but computationally convenient.
+		 the becomeUninfectious rate (death+sampling) is 52, 
+		 which corresponds to an infectious period of about 7 days. 
+		 The time units are years (becomeUninfectious=365/7). 
+	    -->
+            <reaction spec='Reaction' reactionName="Birth" rate="130"> <!-- lambda  -->
+              I -> I + I
+            </reaction>
+            <reaction spec="Reaction" reactionName="Death" rate="25"> <!-- mu -->
+              I -> R
+            </reaction>
+	    <reaction spec="Reaction" reactionName="Sampling" rate="25">
+	      I -> I_sampled
+	    </reaction>
+        </model>
+
+        <initialState spec='InitState'>
+            <lineageSeed spec='Individual' population='@I'/>
+            <populationSize spec='PopulationSize' population='@R' size='0'/>
+	    <populationSize spec="PopulationSize" population="@I_sampled" size="0"/>
+        </initialState>
+
+        <populationEndCondition spec='PopulationEndCondition'
+				population='@I' threshold="0" exceedCondition="false"
+				isRejection="true"/>
+	<!-- Stop simulation when the sampled population is 100K -->
+        <populationEndCondition spec='PopulationEndCondition'
+				threshold="100000" population='@I_sampled'
+				isRejection="false"/>
+
+	<inheritancePostProcessor spec="LineageFilter" reactionName="Sampling"/>
+        <output spec='NewickOutput' fileName="bd_100k_chronogram.tree"/>	
+	<output spec='JsonOutput' fileName="bd_100k_trajectory.json"/>
+    </run>
+</beast>
