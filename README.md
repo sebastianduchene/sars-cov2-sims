@@ -15,29 +15,59 @@ SUBSTITUTION PROCESS
 --------------------
 
 Model of substitution: GTR+F+I+R3
+
 Rate parameter R:
-  A-C: 0.2858
-  A-G: 1.1731
-  A-T: 0.2123
-  C-G: 0.3217
-  C-T: 3.0578
-  G-T: 1.0000
+
+A-C: 0.2858
+
+A-G: 1.1731
+
+A-T: 0.2123
+
+C-G: 0.3217
+
+C-T: 3.0578
+
+
+G-T: 1.0000
+
 State frequencies: (empirical counts from alignment)
-  pi(A) = 0.2987
-  pi(C) = 0.1837
-  pi(G) = 0.1964
-  pi(T) = 0.3213
+
+pi(A) = 0.2987
+
+pi(C) = 0.1837
+
+pi(G) = 0.1964
+
+pi(T) = 0.3213
+
 Rate matrix Q:
-  A   -0.4876   0.07291      0.32   0.09473
-  C    0.1186    -1.571   0.08776     1.364
-  G    0.4867   0.08207    -1.015    0.4462
-  T   0.08809    0.7801    0.2728    -1.141
+
+A   -0.4876   0.07291      0.32   0.09473
+
+C    0.1186    -1.571   0.08776     1.364
+
+G    0.4867   0.08207    -1.015    0.4462
+
+T   0.08809    0.7801    0.2728    -1.141
+
 Model of rate heterogeneity: Invar+FreeRate with 3 categories
+
 Proportion of invariable sites: 0.6041
+
 Site proportion and rates:  (0.202,2.077) (0.1916,2.271) (0.002302,63.1)
- Category  Relative_rate  Proportion
-  0         0              0.6041
-  1         2.077          0.202
-  2         2.271          0.1916
-  3         63.1           0.002302
-  
+
+Category  Relative_rate  Proportion
+
+0         0              0.6041
+
+1         2.077          0.202
+
+2         2.271          0.1916
+
+3         63.1           0.002302
+
+
+
+
+
